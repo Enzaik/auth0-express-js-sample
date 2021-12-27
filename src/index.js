@@ -1,7 +1,7 @@
 /**
  * Required External Modules
  */
-
+const path = require('path');
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
@@ -20,6 +20,7 @@ const apiRouter = express.Router();
  *  App Configuration
  */
 
+app.use('/static', express.static(path.join(__dirname + '/public')));
 app.use(helmet());
 app.use(cors({ origin: clientOrigins }));
 app.use(express.json());
